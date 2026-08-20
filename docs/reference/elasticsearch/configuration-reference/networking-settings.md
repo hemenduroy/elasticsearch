@@ -204,7 +204,7 @@ Use the following advanced settings to configure the HTTP interface independentl
 $$$http-headers-cluster-name-enabled$$$
 
 `http.headers.cluster_name.enabled` {applies_to}`stack: ga 9.6`
-:   ([Static](docs-content://deploy-manage/stack-settings.md#static-cluster-setting), boolean) When `true`, HTTP responses include an `Elastic-Cluster-Name` header set to this node's `cluster.name`. This is the self-managed equivalent of the `X-Found-Handling-Cluster` header that {{ecloud}} adds, and lets clients capture the cluster name for telemetry without an extra request. Defaults to `false`.
+:   ([Static](docs-content://deploy-manage/stack-settings.md#static-cluster-setting), boolean) When `true`, HTTP responses include an `Elastic-Cluster-Name` header set to this node's `cluster.name`. This lets clients capture the cluster name for telemetry without an extra request. Defaults to `false`. For {{ech}} deployments, {{ecloud}} already adds the same information in `X-Found-Handling-Cluster` at the proxy. 
 
     ::::{note}
     The header is not returned on unauthenticated responses, and is not exposed via CORS by default (see [`http.cors.expose-headers`](#http-cors-expose-headers)). Because `cluster.name` is operator-defined, enable this setting only if exposing the cluster name in responses is acceptable for your deployment.
