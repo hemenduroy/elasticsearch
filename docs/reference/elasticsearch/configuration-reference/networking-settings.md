@@ -207,7 +207,7 @@ $$$http-headers-cluster-name-enabled$$$
 :   ([Static](docs-content://deploy-manage/stack-settings.md#static-cluster-setting), boolean) When `true`, HTTP responses include an `Elastic-Cluster-Name` header set to this node's `cluster.name`. This lets clients capture the cluster name for telemetry without an extra request. Defaults to `false`. For {{ech}} deployments, {{ecloud}} already adds the same information in `X-Found-Handling-Cluster` at the proxy. 
 
     ::::{note}
-    The header is not returned on unauthenticated responses, and is not exposed via CORS by default (see [`http.cors.expose-headers`](#http-cors-expose-headers)). Because `cluster.name` is operator-defined, enable this setting only if exposing the cluster name in responses is acceptable for your deployment.
+    The header is not returned on unauthenticated responses, and CORS does not expose it by default (see [`http.cors.expose-headers`](#http-cors-expose-headers)). Because `cluster.name` is operator-defined, enable this setting only if exposing the cluster name in responses is acceptable for your deployment.
     ::::
 
 
